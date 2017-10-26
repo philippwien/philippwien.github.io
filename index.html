@@ -17,6 +17,7 @@
         canvas{
         position:fixed;
             top:0;
+         
             left:0;
         }
         .calender-img{
@@ -122,9 +123,12 @@
             top:0.7em;
             right:1em;
         }
+        iframes{z-index:55000;}
     </style>
 </head>
 <body>
+  
+
    <canvas id="canvas"></canvas>
    <div class="welcome">
        <img src="mata.png" alt="mata"/>
@@ -136,7 +140,9 @@
              <a  id="tag-1" class="tag"  href="#inhalt-1">1</a>
               <div id="inhalt-1" class="tag-inhalt">
                     <div id="present-1" class="inhalt-inhalt">
-         
+         <iframe width="420" height="315"
+src="https://www.youtube.com/embed/DLzxrzFCyOs?autoplay=1">
+</iframe>
                     </div>
                      <a class="close" href="#adventskalender">X</a>
                  </div>
@@ -404,7 +410,7 @@
             }
       
         function failure(i){   
-                       var printed = document.getElementById("present-"+i).innerHTML = "Nana!! Noch ist nicht die Zeit gekommen";     
+                       var printed = document.getElementById("present-"+i).innerHTML = "<iframe width='420' height='315' src='https://www.youtube.com/embed/DLzxrzFCyOs?autoplay=1'></iframe>";     
                    }
        
              function insertData(i){   
