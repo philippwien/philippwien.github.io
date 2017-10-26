@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pOT-Advent</title>
+    <style>
+        body{
+         background:#384d62;
+        }
+        .calender{
+            height:100vh;
+            display:flex;
+             position:relative;
+            align-items: center;
+            justify-content: center;
+        }
+        canvas{
+        position:fixed;
+            top:0;
+            left:0;
+        }
+        .calender-img{
+             background-image:url('cain.jpg');
+            background-size: cover ;
+            width:90%;
+            position:absolute;
+            background-position: center center;
+            z-index:-1;
+            max-height:80vh;
+            background-attachment:fixed;
+            height:100%;
+            min-height:600px;
+            background-repeat:no-repeat;
+        }
+        .calender-grid{
+            width:90%;
+            max-height:80vh;
+            height:100%;
+            min-height:600px;
+     
+   
+            flex-wrap:wrap;
+            display:flex;
+        }
+        .tag:hover{
+            background:rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .grid-item{
+  
+            flex-grow:1;  
+            color:white;
+            font-size:2em;
+           min-width:100px;
+            margin:2%;
+            flex-basis: 10%;
+        flex-shrink:1;
+     
+            flex-grow:1;
+        }
+        #tag-1{
+            
+        }a{
+            color:white;
+        }.tag-inhalt a{
+            color:white;
+            text-decoration:none;
+        }
+        .tag{
+            height:100%;
+            transition: all 0.3s ease-in-out;
+            padding: 0.3em;
+            box-sizing:border-box;
+            display: block;
+            border: 1px dashed white;
+            text-decoration:none;
+        }
+        .tag-inhalt{
+            background:#10112e;
+            position:absolute;
+            top:10%;
+            left:10%;
+            display:flex;
+            padding:1em;
+            box-sizing: border-box;
+            align-items:center;
+            justify-content: center;
+            width:80%;
+            height:80%;
+            transform:scale(0);
+            color:#30315e;
+
+             transition: all 0.4s ease-in-out;
+            opacity:0;
+        }
+        .welcome{display:flex;
+            flex-direction:column;
+        justify-content: center;
+            padding-top:10vh;
+            text-align:center;
+            padding-bottom:10vh;
+        align-items: center;}
+        .welcome img{
+            max-width:15vw;
+            min-width:150px;
+        }
+      :target{
+            opacity:1;
+            transition: all 0.4s ease-in-out;
+            transform:scale(1);
+        }
+        h1{
+            font-family: arial;
+            color:white;
+            font-size:3em;
+        }
+        .close{
+            font-family: arial;
+            font-weight:300;
+            position: absolute;
+            top:0.7em;
+            right:1em;
+        }
+    </style>
+</head>
+<body>
+   <canvas id="canvas"></canvas>
+   <div class="welcome">
+       <img src="mata.png" alt="mata"/>
+       <h1>Der pOT-Adventskalender 2017</h1>
+   </div>
+    <div id="adventskalender" class="calender">
+       <div class="calender-grid">
+           <div  class="grid-item">
+             <a  id="tag-1" class="tag"  href="#inhalt-1">1</a>
+              <div id="inhalt-1" class="tag-inhalt">
+                    <div id="present-1" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+          
+                     <div  class="grid-item">
+             <a  id="tag-2" class="tag"  href="#inhalt-2">2</a>
+              <div id="inhalt-2" class="tag-inhalt">
+                    <div id="present-2" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                          <div  class="grid-item">
+             <a  id="tag-3" class="tag"  href="#inhalt-3">3</a>
+              <div id="inhalt-3" class="tag-inhalt">
+                    <div id="present-3" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                             
+               <div  class="grid-item">
+             <a  id="tag-4" class="tag"  href="#inhalt-4">4</a>
+              <div id="inhalt-4" class="tag-inhalt">
+                    <div id="present-4" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+               
+                   <div  class="grid-item">
+             <a  id="tag-5" class="tag"  href="#inhalt-5">5</a>
+              <div id="inhalt-5" class="tag-inhalt">
+                    <div id="present-5" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-6" class="tag"  href="#inhalt-6">6</a>
+              <div id="inhalt-6" class="tag-inhalt">
+                    <div id="present-6" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-7" class="tag"  href="#inhalt-7">7</a>
+              <div id="inhalt-7" class="tag-inhalt">
+                    <div id ="present-7" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-8" class="tag"  href="#inhalt-8">8</a>
+              <div id="inhalt-8" class="tag-inhalt">
+                    <div id ="present-8" class="inhalt-inhalt">
+         TEST
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-9" class="tag"  href="#inhalt-9">9</a>
+              <div id="inhalt-9" class="tag-inhalt">
+                    <div id ="present-9" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+                   <div  class="grid-item">
+             <a  id="tag-10" class="tag"  href="#inhalt-10">10</a>
+              <div id="inhalt-10" class="tag-inhalt">
+                    <div id="present-10" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-11" class="tag"  href="#inhalt-11">11</a>
+              <div id="inhalt-11" class="tag-inhalt">
+                    <div id ="present-11" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-12" class="tag"  href="#inhalt-12">12</a>
+              <div id="inhalt-12" class="tag-inhalt">
+                    <div id ="present-12" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-13" class="tag"  href="#inhalt-13">13</a>
+              <div id="inhalt-13" class="tag-inhalt">
+                    <div id ="present-13" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-14" class="tag"  href="#inhalt-14">14</a>
+              <div id="inhalt-14" class="tag-inhalt">
+                    <div id ="present-14" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-15" class="tag"  href="#inhalt-15">15</a>
+              <div id="inhalt-15" class="tag-inhalt">
+                    <div id ="present-15" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-16" class="tag"  href="#inhalt-16">16</a>
+              <div id="inhalt-16" class="tag-inhalt">
+                    <div id ="present-16" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-17" class="tag"  href="#inhalt-17">17</a>
+              <div id="inhalt-17" class="tag-inhalt">
+                    <div id ="present-17" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-18" class="tag"  href="#inhalt-18">18</a>
+              <div id="inhalt-18" class="tag-inhalt">
+                    <div id ="present-18" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-19" class="tag"  href="#inhalt-19">19</a>
+              <div id="inhalt-19" class="tag-inhalt">
+                    <div id ="present-19" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-20" class="tag"  href="#inhalt-20">20</a>
+              <div id="inhalt-20" class="tag-inhalt">
+                    <div id ="present-20" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-21" class="tag"  href="#inhalt-21">21</a>
+              <div id="inhalt-21" class="tag-inhalt">
+                    <div id ="present-21" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+               
+                   <div  class="grid-item">
+             <a  id="tag-22" class="tag"  href="#inhalt-22">22</a>
+              <div id="inhalt-22" class="tag-inhalt">
+                    <div id ="present-22" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-23" class="tag"  href="#inhalt-23">23</a>
+              <div id="inhalt-23" class="tag-inhalt">
+                    <div id ="present-23" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+               
+                   <div  class="grid-item">
+             <a  id="tag-24" class="tag"  href="#inhalt-24">24</a>
+              <div id="inhalt-24" class="tag-inhalt">
+                    <div id ="present-24" class="inhalt-inhalt">
+         
+                    </div>
+                     <a class="close" href="#adventskalender">X</a>
+                 </div>
+           </div>  
+                
+       </div>
+        <div class="calender-img" />
+        
+    </div>
+    
+    <script>
+            
+        
+        var presents = [];
+        var date = new Date().getDate();
+        var month = new Date().getMonth();
+            switch ( true ) {
+                case (month == 10):
+                       for(i=1; i < 25; i++){ 
+                        failure(i);
+                       }
+                    break;
+                case (month == 9):
+                       for(i=1; i < 25; i++){ 
+                        failure(i);
+                       }
+                    break;
+                         
+                case (month == 11):
+    
+                    checkDate(date);
+                    break;        
+            }
+      
+        function failure(i){   
+                       var printed = document.getElementById("present-"+i).innerHTML = "Nana!! Noch ist nicht die Zeit gekommen";     
+                   }
+       
+             function insertData(i){   
+                       var printed = document.getElementById("present-"+i).innerHTML = "test";     
+                   }  
+      
+        
+        function checkDate(date){
+               Array.prototype.insert = function ( index, item ) {
+                      this.splice( index, 0, item );
+                };
+      
+                          switch ( date ) {
+    case 1:
+        insertData(1);
+       alert("lel");
+        break;
+    case 2:
+
+        break;
+    case 3:
+  
+        break;
+    case 4:
+  
+        break;
+    case 5:
+  
+        break;
+    case 6:
+  
+        break;
+
+   case 24:
+       insertData(24);
+      break;
+   
+                    }
+            
+         
+
+        }
+        
+        
+//SNOWSCRIPT
+        
+        (function() {
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame ||
+    function(callback) {
+        window.setTimeout(callback, 1000 / 60);
+    };
+    window.requestAnimationFrame = requestAnimationFrame;
+})();
+
+
+var flakes = [],
+    canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d"),
+    flakeCount = 200,
+    mX = -100,
+    mY = -100
+
+    canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+function snow() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = 0; i < flakeCount; i++) {
+        var flake = flakes[i],
+            x = mX,
+            y = mY,
+            minDist = 150,
+            x2 = flake.x,
+            y2 = flake.y;
+
+        var dist = Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y)),
+            dx = x2 - x,
+            dy = y2 - y;
+
+        if (dist < minDist) {
+            var force = minDist / (dist * dist),
+                xcomp = (x - x2) / dist,
+                ycomp = (y - y2) / dist,
+                deltaV = force / 2;
+
+            flake.velX -= deltaV * xcomp;
+            flake.velY -= deltaV * ycomp;
+
+        } else {
+            flake.velX *= .98;
+            if (flake.velY <= flake.speed) {
+                flake.velY = flake.speed
+            }
+            flake.velX += Math.cos(flake.step += .05) * flake.stepSize;
+        }
+
+        ctx.fillStyle = "rgba(255,255,255," + flake.opacity + ")";
+        flake.y += flake.velY;
+        flake.x += flake.velX;
+            
+        if (flake.y >= canvas.height || flake.y <= 0) {
+            reset(flake);
+        }
+
+
+        if (flake.x >= canvas.width || flake.x <= 0) {
+            reset(flake);
+        }
+
+        ctx.beginPath();
+        ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    requestAnimationFrame(snow);
+};
+
+function reset(flake) {
+    flake.x = Math.floor(Math.random() * canvas.width);
+    flake.y = 0;
+    flake.size = (Math.random() * 3) + 2;
+    flake.speed = (Math.random() * 1) + 0.5;
+    flake.velY = flake.speed;
+    flake.velX = 0;
+    flake.opacity = (Math.random() * 0.5) + 0.3;
+}
+
+function init() {
+    for (var i = 0; i < flakeCount; i++) {
+        var x = Math.floor(Math.random() * canvas.width),
+            y = Math.floor(Math.random() * canvas.height),
+            size = (Math.random() * 3) + 2,
+            speed = (Math.random() * 1) + 0.5,
+            opacity = (Math.random() * 0.5) + 0.3;
+
+        flakes.push({
+            speed: speed,
+            velY: speed,
+            velX: 0,
+            x: x,
+            y: y,
+            size: size,
+            stepSize: (Math.random()) / 30,
+            step: 0,
+            angle: 180,
+            opacity: opacity
+        });
+    }
+
+    snow();
+};
+
+canvas.addEventListener("mousemove", function(e) {
+    mX = e.clientX,
+    mY = e.clientY
+});
+
+init();
+    </script>
+    <script>
+    
+    </script>
+</body>
+</html>
