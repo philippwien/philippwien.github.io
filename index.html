@@ -124,11 +124,15 @@
             right:1em;
         }
         iframes{z-index:55000;}
+        #failed{
+            position:fixed;
+            z-index:500;
+        }
     </style>
 </head>
 <body>
   
-
+<div id="failed"></div>
    <canvas id="canvas"></canvas>
    <div class="welcome">
        <img src="mata.png" alt="mata"/>
@@ -391,6 +395,9 @@ src="https://www.youtube.com/embed/DLzxrzFCyOs?autoplay=1">
         var presents = [];
         var date = new Date().getDate();
         var month = new Date().getMonth();
+        var tage = document.getElementsByClassName("tag");
+
+        
             switch ( true ) {
                 case (month == 10):
                        for(i=1; i < 25; i++){ 
@@ -408,9 +415,23 @@ src="https://www.youtube.com/embed/DLzxrzFCyOs?autoplay=1">
                     checkDate(date);
                     break;        
             }
-      
+
+        function clickevent(){
+              document.getElementsByClassName("grid-item").onclick = function(){alert("test")};
+            
+            for (var i=0; i < tage.length; i++) {
+    tage[i].onclick = function(){
+        document.getElementById("failed").innerHTML = "<iframe width='420' height='315' src='https://www.youtube.com/embed/DLzxrzFCyOs?autoplay=1'></iframe>";
+    }
+};
+            
+            
+        }
         function failure(i){   
-                       var printed = document.getElementById("present-"+i).innerHTML = "<iframe width='420' height='315' src='https://www.youtube.com/embed/DLzxrzFCyOs'></iframe>";     
+                       var printed = document.getElementById("present-"+i).innerHTML = "noch nix zu sehen";
+                         clickevent();
+
+       //  
                    }
        
              function insertData(i){   
