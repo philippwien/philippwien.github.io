@@ -9,10 +9,9 @@
         }
         .calender{
             height:100vh;
-            display:flex;
-             position:relative;
-            align-items: center;
-            justify-content: center;
+        
+            position:relative;
+       
         }
         canvas{
         position:fixed;
@@ -21,21 +20,20 @@
             left:0;
         }
         .calender-img{
-             background-image:url('cain.jpg');
+            background-image:url('cain.jpg');
             background-size: cover ;
-            width:90%;
-            position:absolute;
+               
+  
             background-position: center center;
             z-index:-1;
-            max-height:80vh;
-            background-attachment:fixed;
+
             height:100%;
             min-height:600px;
             background-repeat:no-repeat;
         }
         .calender-grid{
-            width:90%;
-            max-height:80vh;
+            width:100%;
+       
             height:100%;
             min-height:600px;
      
@@ -138,7 +136,7 @@
        <img src="mata.png" alt="mata"/>
        <h1>Der pOT-Adventskalender 2017</h1>
    </div>
-    <div id="adventskalender" class="calender">
+    <div id="adventskalender" class="calender calender-img">
        <div class="calender-grid">
            <div  class="grid-item">
              <a  id="tag-1" class="tag"  href="#inhalt-1">1</a>
@@ -385,9 +383,7 @@ src="https://www.youtube.com/embed/DLzxrzFCyOs?autoplay=1">
            </div>  
                 
        </div>
-        <div class="calender-img" />
-        
-    </div>
+      
     
     <script>
             
